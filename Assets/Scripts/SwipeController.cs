@@ -8,23 +8,33 @@ public class SwipeController : MonoBehaviour
     Vector3 clickInicial;
     Vector3 alsoltarclick;
 
-    [SerializeField] GameObject cube;
-
     public float offset = 100;
 
-    public float duration = 0.05f;
+    //declarar delegates y events para los movimientos
 
-    // Start is called before the first frame update
-    void Start()
+    public delegate void SwipeScreen(Vector3 direction);
+    public event SwipeScreen OnSwipeScreen;
+
+    
+
+    //creamos un singleton
+    public static SwipeController Instance;
+
+    private void Awake()
     {
-        
-    }
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
 
+        }
+    }
     // Update is called once per frame
     void Update()
     {
-        
-
         if (Input.GetMouseButtonDown(0))
         {
             clickInicial = Input.mousePosition;
@@ -33,42 +43,37 @@ public class SwipeController : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             alsoltarclick = Input.mousePosition;
+
             Vector3 diferencia = alsoltarclick - clickInicial;
-            Debug.Log(diferencia);
 
-            if (diferencia.x < -offset)
+            if (Mathf.Abs(diferencia.magnitude) > offset)
             {
-                Debug.Log("Movimiento a izquierda");
-                MoveTarget(-cube.GetComponent<Transform>().right);
-            }
+                diferencia = diferencia.normalized;
 
-            if (diferencia.x > offset)
-            {
-                Debug.Log("Movimiento a derecha");
-                MoveTarget(cube.GetComponent<Transform>().right);
-            }
+                diferencia.z = diferencia.y;
 
-            if (diferencia.y < -offset)
-            {
-                Debug.Log("Movimiento a abajo");
-                MoveTarget(-cube.GetComponent<Transform>().forward);
-            }
+                if (Mathf.Abs(diferencia.x)>Mathf.Abs(diferencia.z))
+                {
+                    diferencia.z = 0.0f;
+                }
+                else
+                {
+                    diferencia.x = 0.0f;
+                }
 
-            if (diferencia.y > offset)
-            {
-                Debug.Log("Movimiento a arriba");
-                MoveTarget(cube.GetComponent<Transform>().forward);
-            }
+                diferencia.y = 0.0f;
 
-            //Debug.Log(diferencia);
+                 if (OnSwipeScreen != null)
+                {
+                    OnSwipeScreen(diferencia);
+                }
+            }
+            
+           
+
+            
         }
     }
 
-    void MoveTarget(Vector3 direction)
-    {
-        //cube.transform.position += direction;
-
-        LeanTween.moveLocal(cube, cube.transform.localPosition + direction, duration)
-                 .setEase(LeanTweenType.easeOutCubic);
-    }
+    
 }

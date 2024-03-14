@@ -8,7 +8,7 @@ public class SwipeController : MonoBehaviour
     Vector3 clickInicial;
     Vector3 alsoltarclick;
 
-    public float offset = 100;
+    public float offset = 100f;
 
     //declarar delegates y events para los movimientos
 
@@ -35,6 +35,8 @@ public class SwipeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         if (Input.GetMouseButtonDown(0))
         {
             clickInicial = Input.mousePosition;
@@ -52,6 +54,7 @@ public class SwipeController : MonoBehaviour
 
                 diferencia.z = diferencia.y;
 
+                //no diagonales
                 if (Mathf.Abs(diferencia.x)>Mathf.Abs(diferencia.z))
                 {
                     diferencia.z = 0.0f;
@@ -73,6 +76,7 @@ public class SwipeController : MonoBehaviour
 
             
         }
+       
     }
 
     

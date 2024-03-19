@@ -259,6 +259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5596595460833088057}
   - component: {fileID: 337390527258377599}
+  - component: {fileID: 4886397534976694402}
   m_Layer: 0
   m_Name: Car_Hatch
   m_TagString: Untagged
@@ -305,8 +306,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1.8558049, z: 4.8066187}
+  m_Size: {x: 2.12, y: 1.8558049, z: 4.8066187}
   m_Center: {x: -5.980002e-16, y: 1.0279024, z: -0.5420804}
+--- !u!114 &4886397534976694402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107303288248027267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1904b34be48f743869f74d7c42d60f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carSpeed: 5
 --- !u!1 &6392813734971615694
 GameObject:
   m_ObjectHideFlags: 0

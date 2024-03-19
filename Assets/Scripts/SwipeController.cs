@@ -8,7 +8,7 @@ public class SwipeController : MonoBehaviour
     Vector3 clickInicial;
     Vector3 alsoltarclick;
 
-    public float offset = 100f;
+    public float offset = 50f;
 
     //declarar delegates y events para los movimientos
 
@@ -48,6 +48,13 @@ public class SwipeController : MonoBehaviour
 
             Vector3 diferencia = alsoltarclick - clickInicial;
 
+            if (diferencia == Vector3.zero)
+            {
+                diferencia.z = 1f;
+                OnSwipeScreen(diferencia);
+            }
+
+
             if (Mathf.Abs(diferencia.magnitude) > offset)
             {
                 diferencia = diferencia.normalized;
@@ -55,7 +62,7 @@ public class SwipeController : MonoBehaviour
                 diferencia.z = diferencia.y;
 
                 //no diagonales
-                if (Mathf.Abs(diferencia.x)>Mathf.Abs(diferencia.z))
+                if (Mathf.Abs(diferencia.x) > Mathf.Abs(diferencia.z))
                 {
                     diferencia.z = 0.0f;
                 }

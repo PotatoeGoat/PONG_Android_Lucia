@@ -8,6 +8,7 @@ TagManager:
   - powerups
   - obstacles
   - stop
+  - limit
   layers:
   - Default
   - TransparentFX

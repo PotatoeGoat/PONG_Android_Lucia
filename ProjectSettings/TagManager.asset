@@ -9,6 +9,7 @@ TagManager:
   - obstacles
   - stop
   - limit
+  - water
   layers:
   - Default
   - TransparentFX

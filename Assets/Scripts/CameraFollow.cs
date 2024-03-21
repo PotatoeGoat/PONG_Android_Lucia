@@ -18,7 +18,7 @@ public class CameraFollow : MonoBehaviour
         {
             // Igualamos la posición de la cámara a la del jugador
             //El Vector.Lerp es para hacer la transicion de manera suave, desde una posicion a, a una posicion b, en un determinado tiempo
-            Vector3 targetPosition = new Vector3(jugador.position.x, 0f, jugador.position.z);
+            Vector3 targetPosition = new Vector3(jugador.position.x, 0f, 0f);
             transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 5f);
 
         }

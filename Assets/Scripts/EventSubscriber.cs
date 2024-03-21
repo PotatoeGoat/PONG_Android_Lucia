@@ -9,6 +9,8 @@ public class EventSubscriber : MonoBehaviour
     GameObject chicken;
     public float duration = 0.1f;
 
+    public bool isOnLimit = false;
+
     private void Awake()
     {
         chicken = this.gameObject;
@@ -18,6 +20,8 @@ public class EventSubscriber : MonoBehaviour
     {
         //se suscribe al evento
         SwipeController.Instance.OnSwipeScreen += MoveTarget;
+
+        isOnLimit = false;
     }
 
     public void OnDisable()
@@ -41,12 +45,21 @@ public class EventSubscriber : MonoBehaviour
         }
         if (direction.z > 0)
         {
-            MovementTarjet(Vector3.zero);
+            if (isOnLimit == false)
+            {
+                MovementTarjet(direction / 2);
+            }
+            else
+            {
+                MovementTarjet(Vector3.zero);
+            }
+            
             RotatePlayer(0f);
         }
         if (direction.z < 0)
         {
-            MovementTarjet(Vector3.zero);
+            
+            MovementTarjet(direction / 2);
             RotatePlayer(-180f);
         }
     }
@@ -67,4 +80,25 @@ public class EventSubscriber : MonoBehaviour
 
         LeanTween.rotateLocal(chicken, new Vector3(0f, angle, 0f),rotationSpeed );
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("limit"))
+        {
+            isOnLimit = true;
+            Debug.Log("IsOnLImit");
+        }
+       
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("limit"))
+        {
+            isOnLimit = false;
+            Debug.Log("NoLImit");
+
+        }
+    }
+
 }

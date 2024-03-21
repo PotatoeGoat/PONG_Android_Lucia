@@ -10,6 +10,8 @@ TagManager:
   - stop
   - limit
   - water
+  - destructor
+  - Creator
   layers:
   - Default
   - TransparentFX

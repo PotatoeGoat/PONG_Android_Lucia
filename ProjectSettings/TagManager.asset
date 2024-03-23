@@ -12,6 +12,7 @@ TagManager:
   - water
   - destructor
   - Creator
+  - lateral
   layers:
   - Default
   - TransparentFX

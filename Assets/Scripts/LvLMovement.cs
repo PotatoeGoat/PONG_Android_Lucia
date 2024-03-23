@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LvLMovement : MonoBehaviour
 {
-    public int carril = 0;
+    
 
     public GameObject[] tramos;
 
@@ -32,14 +32,14 @@ public class LvLMovement : MonoBehaviour
     {
         Random.Range(0, tramos.Length);
 
-        Instantiate(tramos[Random.Range(0, tramos.Length)], Vector3.back * carril, Quaternion.identity);
         if (direction.z > 0 && eventSubscriber.isOnLimit == true)
         {
-            MovementTarjet(direction);
-            carril++;
+            MovementTarjet(-direction);
+            
         }
-        
-        
+
+
+
     }
 
     void MovementTarjet(Vector3 direction)

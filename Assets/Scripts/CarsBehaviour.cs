@@ -14,6 +14,7 @@ public class CarsBehaviour : MonoBehaviour
     void Start()
     {
         InitialPosition = transform.position;
+        carSpeed = Random.Range(5, 7);
     }
 
     // Update is called once per frame
@@ -28,11 +29,18 @@ public class CarsBehaviour : MonoBehaviour
     {
         if (other.CompareTag("stop"))
         {
-            Debug.Log("hola");
-            transform.position = InitialPosition;
+            Debug.Log("coche no desactivado");
+            DesactivacionCoches();
+            Debug.Log("coche desactivado");
+
         }
         
     }
 
-   
+
+    void DesactivacionCoches()
+    {
+        this.gameObject.SetActive(false);
+        PoolCoches.InstanceCoche.ReturnCocheToPool(this.gameObject);
+    }
 }

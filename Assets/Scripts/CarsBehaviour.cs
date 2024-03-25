@@ -29,7 +29,7 @@ public class CarsBehaviour : MonoBehaviour
     {
         if (other.CompareTag("stop"))
         {
-            Debug.Log("coche no desactivado");
+            
             DesactivacionCoches();
             Debug.Log("coche desactivado");
 

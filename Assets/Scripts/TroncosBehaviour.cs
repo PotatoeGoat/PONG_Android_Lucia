@@ -2,56 +2,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarsBehaviour : MonoBehaviour
+public class TroncosBehaviour : MonoBehaviour
 {
-    public float carSpeed = 5f;
+    public float troncoSpeed = 5f;
 
     // Start is called before the first frame update
     void Start()
     {
         
-        //carSpeed = Random.Range(5, 7);
+        //troncoSpeed = Random.Range(2, 6);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 forwardMovement = transform.forward * carSpeed * Time.deltaTime;
+        Vector3 forwardMovement = transform.up * troncoSpeed * Time.deltaTime;
         transform.localPosition += forwardMovement;
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("stop"))
         {
-            
+
             DesactivacionCoches();
-            Debug.Log("coche desactivado");
+            Debug.Log("tronco desactivado");
 
         }
 
         if (other.CompareTag("easy"))
         {
-            carSpeed = 2f;
+            troncoSpeed = 2f;
         }
 
         if (other.CompareTag("medium"))
         {
-            carSpeed = 4f;
+            troncoSpeed = 3f;
         }
 
         if (other.CompareTag("hard"))
         {
-            carSpeed = 7f;
+            troncoSpeed = 5f;
         }
-
     }
 
 
     void DesactivacionCoches()
     {
         this.gameObject.SetActive(false);
-        PoolCoches.InstanceCoche.ReturnCocheToPool(this.gameObject);
+        PoolTRoncos.Instance.ReturnTroncoToPool(this.gameObject);
     }
 }

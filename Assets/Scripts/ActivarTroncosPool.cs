@@ -6,22 +6,22 @@ public class ActivarTroncosPool : MonoBehaviour
 {
     public PoolTRoncos poolTRoncos;
 
-    float timer = 0f;
-    public float time = 2f;
+    
+
+    public bool troncoDentro = false;
 
     void Start()
     {
-        time = Random.Range(2, 4);
+        
         ActivarTronco();
     }
 
     private void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >= time)
+        if (troncoDentro == false)
         {
             ActivarTronco();
-            timer = 0f;
+            troncoDentro = true;
         }
     }
 
@@ -34,6 +34,23 @@ public class ActivarTroncosPool : MonoBehaviour
             tronco.transform.position = transform.position;
             tronco.transform.rotation = transform.rotation;
             tronco.SetActive(true);
+            //timer = 0f;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("obstacles"))
+        {
+            troncoDentro = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("obstacles"))
+        {
+            troncoDentro = false;
         }
     }
 }

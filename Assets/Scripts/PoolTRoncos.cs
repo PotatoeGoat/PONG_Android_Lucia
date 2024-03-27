@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public class PoolTRoncos : MonoBehaviour
 {
-    public GameObject troncoPrefab;
-    public int poolSize = 20;
+    public GameObject[] troncoPrefab;
+    public int poolSize = 100;
 
     private List<GameObject> troncoPool = new List<GameObject>();
 
@@ -40,7 +40,7 @@ public class PoolTRoncos : MonoBehaviour
         // Instanciar y desactivar todas las balas al inicio
        for (int i = 0; i < poolSize; i++)
         {
-            GameObject tronco = Instantiate(troncoPrefab);
+            GameObject tronco = Instantiate(troncoPrefab[Random.Range(0, troncoPrefab.Length)]);
             tronco.SetActive(false);
             troncoPool.Add(tronco);
         }
@@ -52,7 +52,7 @@ public class PoolTRoncos : MonoBehaviour
 
         if (troncoPool.Count == 0)
         {
-            GameObject tronco = Instantiate(troncoPrefab);
+            GameObject tronco = Instantiate(troncoPrefab[Random.Range(0, troncoPrefab.Length)]);
             tronco.SetActive(false);
             troncoPool.Add(tronco);
             //Debug.LogWarning("No hay troncos disponibles en la piscina. Considera aumentar el tamaño de la piscina.");

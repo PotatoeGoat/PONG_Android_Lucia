@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class PoolCoches : MonoBehaviour
 {
     public GameObject[] cochePrefab;
-    public int poolSize = 20;
+    public int poolSize = 100;
 
     private List<GameObject> cochePool = new List<GameObject>();
 

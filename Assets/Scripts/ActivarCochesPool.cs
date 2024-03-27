@@ -6,24 +6,21 @@ public class ActivarCochesPool : MonoBehaviour
 {
     public PoolCoches poolCoches;
 
-    float timer = 0f;
-    public float time = 2f;
+    public bool cocheDentro = false;
 
     void Start()
     {
-        time = Random.Range(2, 4);
         ActivarCoche();
     }
 
     private void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >= time)
+        if (cocheDentro == false)
         {
             ActivarCoche();
-            timer = 0f;
+            cocheDentro = true;
         }
-        
+
     }
 
     private void ActivarCoche()
@@ -35,6 +32,22 @@ public class ActivarCochesPool : MonoBehaviour
             coche.transform.position = transform.position;
             coche.transform.rotation = transform.rotation;
             coche.SetActive(true);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("obstacles"))
+        {
+            cocheDentro = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("obstacles"))
+        {
+            cocheDentro = false;
         }
     }
 }

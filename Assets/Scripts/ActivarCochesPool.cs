@@ -10,7 +10,7 @@ public class ActivarCochesPool : MonoBehaviour
 
     void Start()
     {
-        ActivarCoche();
+        //ActivarCoche();
     }
 
     private void Update()

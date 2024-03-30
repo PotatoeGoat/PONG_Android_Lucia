@@ -8,7 +8,7 @@ public class LvLMovement : MonoBehaviour
 
     
 
-    public GameObject nivel;
+    GameObject nivel;
     public float duration = 0.1f;
 
     public EventSubscriber eventSubscriber;
@@ -19,7 +19,7 @@ public class LvLMovement : MonoBehaviour
         //se suscribe al evento
         SwipeController.Instance.OnSwipeScreen += LevelBehaviour;
 
-
+        nivel = this.gameObject;
     }
 
     // Update is called once per frame

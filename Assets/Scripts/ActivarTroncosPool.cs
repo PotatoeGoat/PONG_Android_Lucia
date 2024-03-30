@@ -13,7 +13,7 @@ public class ActivarTroncosPool : MonoBehaviour
     void Start()
     {
         
-        ActivarTronco();
+        //ActivarTronco();
     }
 
     private void Update()
@@ -34,7 +34,7 @@ public class ActivarTroncosPool : MonoBehaviour
             tronco.transform.position = transform.position;
             tronco.transform.rotation = transform.rotation;
             tronco.SetActive(true);
-            //timer = 0f;
+            
         }
     }
 

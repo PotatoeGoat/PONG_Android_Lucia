@@ -6,7 +6,7 @@ public class LvLMovement : MonoBehaviour
 {
     
 
-    public GameObject[] tramos;
+    
 
     public GameObject nivel;
     public float duration = 0.1f;
@@ -30,7 +30,7 @@ public class LvLMovement : MonoBehaviour
 
     void LevelBehaviour(Vector3 direction)
     {
-        Random.Range(0, tramos.Length);
+        
 
         if (direction.z > 0 && eventSubscriber.isOnLimit == true)
         {

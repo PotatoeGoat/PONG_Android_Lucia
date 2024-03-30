@@ -175,6 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6720716912494366680}
+  - component: {fileID: 3220839101264706327}
   m_Layer: 0
   m_Name: Arbol grande
   m_TagString: Untagged
@@ -200,6 +201,27 @@ Transform:
   - {fileID: 4353718605082492185}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3220839101264706327
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8603207741860337064}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1655504, y: 1.9331026, z: 1.1655505}
+  m_Center: {x: 0.007525012, y: 2.0065503, z: 0.0075250864}
 --- !u!1001 &2312120239246308054
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11,6 +11,8 @@ public class EventSubscriber : MonoBehaviour
 
     public bool isOnLimit = false;
 
+   
+
     private void Awake()
     {
         chicken = this.gameObject;
@@ -28,6 +30,16 @@ public class EventSubscriber : MonoBehaviour
     {
         //En caso de que se elimine el objeto que se suscribe, se elimina la suscripcion
         SwipeController.Instance.OnSwipeScreen -= MoveTarget;
+    }
+
+    private void Update()
+    {
+        /*if (ContactWithObstacles.Instance.isOnObstacle==true)
+        {
+            transform.position = ContactWithObstacles.Instance.objectMovement;
+        }*/
+
+        
     }
 
     void MoveTarget(Vector3 direction)
@@ -62,6 +74,8 @@ public class EventSubscriber : MonoBehaviour
             MovementTarjet(direction / 2);
             RotatePlayer(-180f);
         }
+
+       
     }
 
     void MovementTarjet(Vector3 direction)
@@ -88,7 +102,9 @@ public class EventSubscriber : MonoBehaviour
             isOnLimit = true;
             Debug.Log("IsOnLImit");
         }
-       
+
+        
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -99,6 +115,10 @@ public class EventSubscriber : MonoBehaviour
             Debug.Log("NoLImit");
 
         }
+
+        
     }
+
+    
 
 }

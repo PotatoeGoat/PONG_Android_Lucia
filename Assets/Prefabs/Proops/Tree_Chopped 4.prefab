@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5136225372145868603}
   - component: {fileID: 8548173949804682230}
   - component: {fileID: 4107371287195290735}
+  - component: {fileID: 5324449611059685377}
   m_Layer: 0
   m_Name: Tree_Chopped 4
   m_TagString: obstacles
@@ -29,13 +30,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4303953115729611369}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4923210091897874207
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -111,7 +112,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 124
   m_CollisionDetection: 0
 --- !u!114 &8548173949804682230
 MonoBehaviour:
@@ -125,7 +126,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb5e7f538f064a1ea9db60c69cf21b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialRotation: {x: 0, y: 0, z: 90}
   troncoSpeed: 4
+  easySpeed: 1
+  mediumSpeed: 2
+  hardSpeed: 4
 --- !u!65 &4107371287195290735
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -147,3 +152,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.54006773, y: 0.6663658, z: 0.5400676}
   m_Center: {x: 0, y: 1.329525, z: 0}
+--- !u!114 &5324449611059685377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4303953115729611369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ac9a25c34674a9caa068c0a89f2619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nivel: {fileID: 4303953115729611369}
+  duration: 0.1
+  eventSubscriber: {fileID: 0}

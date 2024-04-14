@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class DestructorBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
-    }
+        if (collision.gameObject.CompareTag("obstacles"))
+        {
+            collision.gameObject.SetActive(false);
+        } 
+    } 
 }

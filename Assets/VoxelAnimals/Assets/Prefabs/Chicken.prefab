@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: 95970164997226778}
   - component: {fileID: 6666599539089333172}
   - component: {fileID: 1053900896550418161}
+  - component: {fileID: 8843602538949200361}
   - component: {fileID: 65706843018012252}
   - component: {fileID: 8777781037054757995}
   m_Layer: 0
@@ -420,10 +421,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c1e7383f70948b1baf600c71018b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raycastDistance: 1
-  obstacleLayer:
+  characterRigidbody: {fileID: 0}
+  movableObjectLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
+  objectMovement: {x: 0, y: 0, z: 0}
+  isOnObstacle: 0
+--- !u!114 &8843602538949200361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969419073538870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a219b5d300c984d14a6aaa866ff2771d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &65706843018012252
 BoxCollider:
   m_ObjectHideFlags: 0

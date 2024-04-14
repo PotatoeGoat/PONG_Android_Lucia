@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class LvLMovement : MonoBehaviour
 {
-    
-
-    
-
     GameObject nivel;
     public float duration = 0.1f;
 
@@ -30,16 +26,10 @@ public class LvLMovement : MonoBehaviour
 
     void LevelBehaviour(Vector3 direction)
     {
-        
-
         if (direction.z > 0 && eventSubscriber.isOnLimit == true)
         {
             MovementTarjet(-direction);
-            
         }
-
-
-
     }
 
     void MovementTarjet(Vector3 direction)

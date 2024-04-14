@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBehaviour : MonoBehaviour
+public class FirstPieceLvlBehaviour : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,11 +16,12 @@ public class PlayerBehaviour : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("LimiteLateral"))
+        if (collision.gameObject.CompareTag("destructor"))
         {
-            GameController.Instance.RestartGame();
+            this.gameObject.SetActive(false);
+            
         }
     }
 }

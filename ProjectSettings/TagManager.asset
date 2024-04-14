@@ -17,6 +17,11 @@ TagManager:
   - medium&HARD
   - medium
   - hard
+  - LimiteLateral
+  - NoArboles
+  - 2x2
+  - 4x4
+  - level
   layers:
   - Default
   - TransparentFX

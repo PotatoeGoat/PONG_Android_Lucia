@@ -6,6 +6,7 @@ public class PoolTRoncos : MonoBehaviour
 {
     public GameObject[] troncoPrefab;
     public int poolSize = 100;
+    public Transform parentObject;
 
     private List<GameObject> troncoPool = new List<GameObject>();
 
@@ -42,6 +43,7 @@ public class PoolTRoncos : MonoBehaviour
         {
             GameObject tronco = Instantiate(troncoPrefab[Random.Range(0, troncoPrefab.Length)]);
             tronco.SetActive(false);
+            tronco.transform.SetParent(parentObject);
             troncoPool.Add(tronco);
         }
     }

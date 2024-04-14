@@ -6,6 +6,7 @@ public class PoolCoches : MonoBehaviour
 {
     public GameObject[] cochePrefab;
     public int poolSize = 100;
+    public Transform parentObject;
 
     private List<GameObject> cochePool = new List<GameObject>();
 
@@ -42,6 +43,7 @@ public class PoolCoches : MonoBehaviour
         {
             GameObject coche = Instantiate(cochePrefab[Random.Range(0, cochePrefab.Length)]);
             coche.SetActive(false);
+            coche.transform.SetParent(parentObject);
             cochePool.Add(coche);
         }
     }

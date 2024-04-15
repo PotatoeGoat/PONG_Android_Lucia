@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 8691621161629670481}
   m_Layer: 0
   m_Name: Police
-  m_TagString: obstacles
+  m_TagString: danger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

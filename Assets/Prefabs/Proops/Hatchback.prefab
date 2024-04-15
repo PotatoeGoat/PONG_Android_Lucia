@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 7204494306096067722}
   m_Layer: 0
   m_Name: Hatchback
-  m_TagString: obstacles
+  m_TagString: danger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

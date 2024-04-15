@@ -3,12 +3,10 @@ using UnityEngine;
 public class GeneradorTramos : MonoBehaviour
 {
     public Transform generationPoint; // Punto de generación de los tramos
-    public GameObject trigger; // El objeto trigger que detiene la generación de tramos
+    //public GameObject trigger; // El objeto trigger que detiene la generación de tramos
     public int cantidadTramosAGenerar = 24; // Cantidad de tramos a generar cuando se activa el trigger
 
-    //bool generandoTramos = true; // Indica si se están generando tramos
-
-
+    //bool somethingInside = false;
 
     private void Start()
     {
@@ -16,23 +14,18 @@ public class GeneradorTramos : MonoBehaviour
         for (int i = 0; i < cantidadTramosAGenerar; i++)
         {
             GenerarTramo();
+            
         }
     }
-
-  
 
     private void Update()
     {
-        if (Creator.Instance.somethingInside == false)
+        if(DestructorBehaviour.Instance.tramoDestruido == true)
         {
-            for (int i = 0; i < 1; i++)
-            {
-                GenerarTramo();
-            }
+            GenerarTramo();
+            DestructorBehaviour.Instance.tramoDestruido = false;
         }
     }
-
-    
 
     public void GenerarTramo()
     {
@@ -55,12 +48,13 @@ public class GeneradorTramos : MonoBehaviour
                 tramo.SetActive(true);
 
                 // Actualizar la posición del punto de generación para el siguiente tramo
-                generationPoint.position += offset*2f;
+                generationPoint.position += offset * 2f;
             }
             else
             {
                 Debug.LogWarning("El tramo no tiene un Collider adjunto.");
             }
+
             
         }
     }

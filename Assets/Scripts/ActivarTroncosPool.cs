@@ -40,7 +40,7 @@ public class ActivarTroncosPool : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("obstacles"))
+        if (other.gameObject.CompareTag("danger"))
         {
             troncoDentro = true;
         }
@@ -48,7 +48,7 @@ public class ActivarTroncosPool : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("obstacles"))
+        if (other.gameObject.CompareTag("danger"))
         {
             troncoDentro = false;
         }

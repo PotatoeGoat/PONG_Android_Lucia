@@ -37,7 +37,7 @@ public class ActivarCochesPool : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("obstacles"))
+        if (other.gameObject.CompareTag("danger"))
         {
             cocheDentro = true;
         }
@@ -45,7 +45,7 @@ public class ActivarCochesPool : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("obstacles"))
+        if (other.gameObject.CompareTag("danger"))
         {
             cocheDentro = false;
         }

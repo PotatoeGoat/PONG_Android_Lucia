@@ -4,10 +4,26 @@ using UnityEngine;
 
 public class DestructorBehaviour : MonoBehaviour
 {
+    public bool tramoDestruido = false;
 
+    //creamos un singleton
+    public static DestructorBehaviour Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("obstacles"))
+        if (collision.gameObject.CompareTag("danger"))
         {
             collision.gameObject.SetActive(false);
         } 

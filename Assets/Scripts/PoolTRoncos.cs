@@ -56,6 +56,7 @@ public class PoolTRoncos : MonoBehaviour
         {
             GameObject tronco = Instantiate(troncoPrefab[Random.Range(0, troncoPrefab.Length)]);
             tronco.SetActive(false);
+            tronco.transform.SetParent(parentObject);
             troncoPool.Add(tronco);
             //Debug.LogWarning("No hay troncos disponibles en la piscina. Considera aumentar el tamaño de la piscina.");
             return null;

@@ -6,6 +6,7 @@ public class PoolTramos2y4 : MonoBehaviour
 {
     public GameObject[] tramos2y4Prefab;
     public int poolSize = 100;
+    public Transform parentObject;
 
     private List<GameObject> tramos2y4Pool = new List<GameObject>();
 
@@ -39,6 +40,7 @@ public class PoolTramos2y4 : MonoBehaviour
         {
             GameObject tramo = Instantiate(tramos2y4Prefab[Random.Range(0, tramos2y4Prefab.Length)]);
             tramo.SetActive(false);
+            tramo.transform.SetParent(parentObject);
             tramos2y4Pool.Add(tramo);
         }
     }
@@ -51,6 +53,7 @@ public class PoolTramos2y4 : MonoBehaviour
         {
             GameObject tramo = Instantiate(tramos2y4Prefab[Random.Range(0, tramos2y4Prefab.Length)]);
             tramo.SetActive(false);
+            tramo.transform.SetParent(parentObject);
             tramos2y4Pool.Add(tramo);
             //Debug.LogWarning("No hay tramos disponibles en la piscina. Considera aumentar el tamaño de la piscina.");
             return null;

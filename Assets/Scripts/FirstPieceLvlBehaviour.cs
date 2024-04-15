@@ -21,7 +21,7 @@ public class FirstPieceLvlBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("destructor"))
         {
             this.gameObject.SetActive(false);
-            
+            DestructorBehaviour.Instance.tramoDestruido = true;
         }
     }
 }

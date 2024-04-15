@@ -21,7 +21,7 @@ public class Creator : MonoBehaviour
 
         }
     }
-   
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -38,6 +38,8 @@ public class Creator : MonoBehaviour
         if (other.CompareTag("level"))
         {
             somethingInside = false;
+            
+
             
         }
     }

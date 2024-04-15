@@ -56,6 +56,7 @@ public class PoolCoches : MonoBehaviour
         {
             GameObject coche = Instantiate(cochePrefab[Random.Range(0, cochePrefab.Length)]);
             coche.SetActive(false);
+            coche.transform.SetParent(parentObject);
             cochePool.Add(coche);
             //Debug.LogWarning("No hay coches disponibles en la piscina. Considera aumentar el tamaño de la piscina.");
             return null;

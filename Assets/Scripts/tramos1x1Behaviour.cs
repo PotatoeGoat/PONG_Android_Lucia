@@ -21,7 +21,7 @@ public class tramos1x1Behaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("destructor"))
         {
             Pool1x1.Instance1x1.ReturnTramoToPool(this.gameObject);
-            
+            DestructorBehaviour.Instance.tramoDestruido = true;
         }
     }
 
@@ -30,7 +30,7 @@ public class tramos1x1Behaviour : MonoBehaviour
         if (other.CompareTag("destructor"))
         {
             Pool1x1.Instance1x1.ReturnTramoToPool(this.gameObject);
-            
+            DestructorBehaviour.Instance.tramoDestruido = true;
         }
     }
 }

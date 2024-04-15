@@ -30,7 +30,7 @@ public class TroncosBehaviour : MonoBehaviour
         if (other.CompareTag("stop"))
         {
 
-            DesactivacionCoches();
+            DesactivacionTronco();
             Debug.Log("tronco desactivado");
 
         }
@@ -52,7 +52,7 @@ public class TroncosBehaviour : MonoBehaviour
     }
 
 
-    void DesactivacionCoches()
+    void DesactivacionTronco()
     {
         this.gameObject.SetActive(false);
         PoolTRoncos.Instance.ReturnTroncoToPool(this.gameObject);

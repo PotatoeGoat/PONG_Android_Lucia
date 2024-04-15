@@ -22,6 +22,9 @@ TagManager:
   - 2x2
   - 4x4
   - level
+  - coin
+  - floor
+  - danger
   layers:
   - Default
   - TransparentFX

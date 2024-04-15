@@ -11,7 +11,7 @@ public class EventSubscriber : MonoBehaviour
 
     public bool isOnLimit = false;
 
-   
+    bool youCanJump = true;
 
     private void Awake()
     {
@@ -44,18 +44,18 @@ public class EventSubscriber : MonoBehaviour
 
     void MoveTarget(Vector3 direction)
     {
-        if (direction.x > 0)
+        if (direction.x > 0 && youCanJump == true)
         {
             MovementTarjet(direction/2);
             RotatePlayer(90f);
 
         }
-        if (direction.x < 0)
+        if (direction.x < 0 && youCanJump == true)
         {
             MovementTarjet(direction/2);
             RotatePlayer(-90f);
         }
-        if (direction.z > 0)
+        if (direction.z > 0 && youCanJump == true)
         {
             if (isOnLimit == false)
             {
@@ -68,7 +68,7 @@ public class EventSubscriber : MonoBehaviour
             
             RotatePlayer(0f);
         }
-        if (direction.z < 0)
+        if (direction.z < 0 && youCanJump == true)
         {
             
             MovementTarjet(direction / 2);
@@ -80,11 +80,14 @@ public class EventSubscriber : MonoBehaviour
 
     void MovementTarjet(Vector3 direction)
     {
-        //Debug.Log(direction);
+        youCanJump = false;
         LeanTween.moveLocal(chicken, chicken.transform.position + direction + Vector3.up, duration / 2).setEase(LeanTweenType.easeOutCubic).setOnComplete(() =>
         {
-            LeanTween.moveLocal(chicken, chicken.transform.position + direction - Vector3.up, duration / 2).setEase(LeanTweenType.easeOutCubic);
-
+            LeanTween.moveLocal(chicken, chicken.transform.position + direction - Vector3.up, duration / 2).setEase(LeanTweenType.easeOutCubic).setOnComplete(() =>
+            {
+                youCanJump = true;
+            });
+            
         });
     }
 
@@ -102,9 +105,10 @@ public class EventSubscriber : MonoBehaviour
             isOnLimit = true;
             Debug.Log("IsOnLImit");
         }
-
-        
-
+        if (other.CompareTag("water"))
+        {
+            youCanJump = false;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -116,7 +120,6 @@ public class EventSubscriber : MonoBehaviour
 
         }
 
-        
     }
 
     

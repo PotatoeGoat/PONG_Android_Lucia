@@ -36299,6 +36299,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 3263134752860152623, guid: 930d1ae63119840e995433b389e6f4fd, type: 3}
+      propertyPath: m_TagString
+      value: floor
+      objectReference: {fileID: 0}
     - target: {fileID: 3788274466543395944, guid: 930d1ae63119840e995433b389e6f4fd, type: 3}
       propertyPath: m_Name
       value: Tramo 1.1

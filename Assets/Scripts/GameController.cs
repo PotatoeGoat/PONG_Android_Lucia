@@ -6,6 +6,15 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public static GameController Instance;
+    public int coinCount = 0;
+
+    public CanvasGroup CoinsPanel;
+
+    public GameObject pantallaFinal;
+
+    public GameObject pantallaInicial;
+
+    public GameObject pantallaPausa;
 
     private void Awake()
     {

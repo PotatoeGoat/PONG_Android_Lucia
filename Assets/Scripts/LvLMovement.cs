@@ -7,7 +7,7 @@ public class LvLMovement : MonoBehaviour
     GameObject nivel;
     public float duration = 0.1f;
 
-    public EventSubscriber eventSubscriber;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,11 @@ public class LvLMovement : MonoBehaviour
         nivel = this.gameObject;
     }
 
+    private void OnDisable()
+    {
+        SwipeController.Instance.OnSwipeScreen -= LevelBehaviour;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -26,7 +31,7 @@ public class LvLMovement : MonoBehaviour
 
     void LevelBehaviour(Vector3 direction)
     {
-        if (direction.z > 0 && eventSubscriber.isOnLimit == true)
+        if (direction.z > 0 && EventSubscriber.Instance.isOnLimit == true)
         {
             MovementTarjet(-direction);
         }

@@ -22,5 +22,10 @@ public class PlayerBehaviour : MonoBehaviour
         {
             GameController.Instance.RestartGame();
         }
+
+        if (other.CompareTag("water"))
+        {
+            GameController.Instance.RestartGame();
+        }
     }
 }

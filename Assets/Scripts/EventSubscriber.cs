@@ -13,13 +13,25 @@ public class EventSubscriber : MonoBehaviour
 
     bool youCanJump = true;
 
+    public static EventSubscriber Instance;
+
     private void Awake()
     {
-        chicken = this.gameObject;
+        // Configurar singleton
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void Start()
     {
+        chicken = this.gameObject;
+
         //se suscribe al evento
         SwipeController.Instance.OnSwipeScreen += MoveTarget;
 
@@ -34,11 +46,7 @@ public class EventSubscriber : MonoBehaviour
 
     private void Update()
     {
-        /*if (ContactWithObstacles.Instance.isOnObstacle==true)
-        {
-            transform.position = ContactWithObstacles.Instance.objectMovement;
-        }*/
-
+      
         
     }
 

@@ -12,9 +12,11 @@ public class GameController : MonoBehaviour
 
     public GameObject pantallaFinal;
 
-    public GameObject pantallaInicial;
+    public GameObject pasos;
 
     public GameObject pantallaPausa;
+
+
 
     private void Awake()
     {
@@ -38,7 +40,10 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (StepsSystem.Instance.recordSuperado == true)
+        {
+
+        }
     }
 
     public void RestartGame()

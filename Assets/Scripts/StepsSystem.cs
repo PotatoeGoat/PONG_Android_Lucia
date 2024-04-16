@@ -7,8 +7,25 @@ public class StepsSystem : MonoBehaviour
     int totalSteps = 0;
     int recordSteps = 0; // Variable para almacenar el récord
 
+    public bool recordSuperado = false;
+
     // La clave para guardar el récord en PlayerPrefs
     string recordKey = "RecordSteps";
+
+    public static StepsSystem Instance;
+
+    private void Awake()
+    {
+        // Configurar singleton
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +59,8 @@ public class StepsSystem : MonoBehaviour
             {
                 // Actualiza el récord
                 recordSteps = totalSteps;
+
+                recordSuperado = true;
 
                 // Guardar el nuevo récord en PlayerPrefs
                 PlayerPrefs.SetInt(recordKey, recordSteps);

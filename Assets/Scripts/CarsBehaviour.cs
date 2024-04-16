@@ -38,12 +38,12 @@ public class CarsBehaviour : MonoBehaviour
 
         if (other.CompareTag("medium"))
         {
-            carSpeed = 4f;
+            carSpeed = 3f;
         }
 
         if (other.CompareTag("hard"))
         {
-            carSpeed = 7f;
+            carSpeed = 5f;
         }
 
     }

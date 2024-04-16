@@ -25,6 +25,7 @@ TagManager:
   - coin
   - floor
   - danger
+  - troncos
   layers:
   - Default
   - TransparentFX

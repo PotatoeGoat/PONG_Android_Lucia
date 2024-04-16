@@ -26,6 +26,11 @@ public class DestructorBehaviour : MonoBehaviour
         if (collision.gameObject.CompareTag("danger"))
         {
             collision.gameObject.SetActive(false);
-        } 
+        }
+
+        if (collision.gameObject.CompareTag("troncos"))
+        {
+            collision.gameObject.SetActive(false);
+        }
     } 
 }

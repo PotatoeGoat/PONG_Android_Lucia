@@ -7,8 +7,10 @@ public class PlayerBehaviour : MonoBehaviour
     float time = 1f;
 
     float timer = 0f;
-
+    
     bool touchingWater = false;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +27,7 @@ public class PlayerBehaviour : MonoBehaviour
 
             if (timer > time)
             {
-                GameController.Instance.RestartGame();
+                GameController.Instance.isDead = true;
                 timer = 0f;
             }
         }
@@ -35,14 +37,22 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (other.CompareTag("LimiteLateral"))
         {
-            GameController.Instance.RestartGame();
+            GameController.Instance.isDead = true;
         }
 
         if (other.CompareTag("water"))
         {
             touchingWater = true;
 
-            GameController.Instance.RestartGame();
+            
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("danger"))
+        {
+            GameController.Instance.isDead = true;
         }
     }
 }

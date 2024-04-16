@@ -4,7 +4,22 @@ using UnityEngine;
 
 public class CoinSystem : MonoBehaviour
 {
-    
+    public bool monedaRecogida = false;
+
+    public static CoinSystem Instance;
+
+    private void Awake()
+    {
+        // Configurar singleton
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +39,7 @@ public class CoinSystem : MonoBehaviour
         {
             GameController.Instance.coinCount++;
             other.gameObject.SetActive(false);
+            monedaRecogida = true;
         }
     }
 }

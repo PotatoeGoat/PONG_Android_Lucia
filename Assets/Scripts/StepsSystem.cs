@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StepsSystem : MonoBehaviour
 {
-    int totalSteps = 0;
+    public int totalSteps = 0;
     int recordSteps = 0; // Variable para almacenar el récord
 
     public bool recordSuperado = false;

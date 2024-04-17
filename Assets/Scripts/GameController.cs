@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour
     public int coinCount = 0;
     public bool isDead = false;
 
+    public GameObject level;
+
     public GameObject player;
 
     public CanvasGroup CoinsPanel;
@@ -62,8 +64,8 @@ public class GameController : MonoBehaviour
 
         if (CoinSystem.Instance.monedaRecogida == true)
         {
-            coinsCounterPlaying.text = coinCount.ToString();
-            coinsCounterFinal.text = coinCount.ToString();
+            coinsCounterPlaying.text = coinCount.ToString("0000");
+            coinsCounterFinal.text = coinCount.ToString("0000");
             LeanTween.alphaCanvas(CoinsPanel, 1, 0.2f).setOnComplete(() =>
             {
                 LeanTween.alphaCanvas(CoinsPanel, 0, 0.3f).setDelay(0.5f);
@@ -72,8 +74,10 @@ public class GameController : MonoBehaviour
         }
         if (isDead == true)
         {
-            player.SetActive(false);
+            impedirMovimiento();
             pantallaGamePlay.SetActive(false);
+
+            pantallaFinal.gameObject.SetActive(true);
             LeanTween.alphaCanvas(pantallaFinal, 1, 0.5f);
             if (StepsSystem.Instance.recordSuperado == true)
             {
@@ -92,4 +96,19 @@ public class GameController : MonoBehaviour
         Application.Quit();
 
     }
+
+    public void RestartRecord()
+    {
+        PlayerPrefs.SetInt(StepsSystem.Instance.recordKey, 0); 
+        //StepsSystem.Instance.recordSteps = 0; 
+    }
+
+    void impedirMovimiento()
+    {
+        LvLMovement lvLMovement = level.GetComponent<LvLMovement>();
+        lvLMovement.enabled = false;
+
+        player.gameObject.SetActive(false);
+    }
+
 }

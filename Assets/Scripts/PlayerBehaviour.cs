@@ -31,6 +31,22 @@ public class PlayerBehaviour : MonoBehaviour
                 timer = 0f;
             }
         }
+
+        
+        /*RaycastHit hit;
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit))
+        {
+            if (hit.collider.CompareTag("troncos"))
+            {
+                EventSubscriber.Instance.youCanJump = true;
+            }
+            else if (hit.collider.CompareTag("water"))
+            {
+                EventSubscriber.Instance.youCanJump = false;
+            }
+            
+            
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,9 +59,8 @@ public class PlayerBehaviour : MonoBehaviour
         if (other.CompareTag("water"))
         {
             touchingWater = true;
-
-            
         }
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -54,5 +69,15 @@ public class PlayerBehaviour : MonoBehaviour
         {
             GameController.Instance.isDead = true;
         }
+        if (collision.gameObject.CompareTag("troncos"))
+        {
+            EventSubscriber.Instance.youCanJump = true;
+        }
+
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        
     }
 }

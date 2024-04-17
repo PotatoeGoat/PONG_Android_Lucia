@@ -10,8 +10,9 @@ public class EventSubscriber : MonoBehaviour
     public float duration = 0.1f;
 
     public bool isOnLimit = false;
+    public bool isOnLimitFirstTime = false;
 
-    bool youCanJump = true;
+    public bool youCanJump = true;
 
     public static EventSubscriber Instance;
 
@@ -54,12 +55,14 @@ public class EventSubscriber : MonoBehaviour
     {
         if (direction.x > 0 && youCanJump == true)
         {
+            
             MovementTarjet(direction/2);
             RotatePlayer(90f);
 
         }
         if (direction.x < 0 && youCanJump == true)
         {
+            
             MovementTarjet(direction/2);
             RotatePlayer(-90f);
         }
@@ -67,10 +70,12 @@ public class EventSubscriber : MonoBehaviour
         {
             if (isOnLimit == false)
             {
+                
                 MovementTarjet(direction / 2);
             }
             else
             {
+                
                 MovementTarjet(Vector3.zero);
             }
             
@@ -88,6 +93,7 @@ public class EventSubscriber : MonoBehaviour
 
     void MovementTarjet(Vector3 direction)
     {
+
         youCanJump = false;
         LeanTween.moveLocal(chicken, chicken.transform.position + direction + Vector3.up, duration / 2).setEase(LeanTweenType.easeOutCubic).setOnComplete(() =>
         {
@@ -111,6 +117,7 @@ public class EventSubscriber : MonoBehaviour
         if (other.CompareTag("limit"))
         {
             isOnLimit = true;
+            isOnLimitFirstTime = true;
             Debug.Log("IsOnLImit");
         }
         if (other.CompareTag("water"))

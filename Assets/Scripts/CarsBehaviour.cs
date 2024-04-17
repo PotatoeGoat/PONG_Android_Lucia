@@ -27,7 +27,7 @@ public class CarsBehaviour : MonoBehaviour
         {
             
             DesactivacionCoches();
-            Debug.Log("coche desactivado");
+            //Debug.Log("coche desactivado");
 
         }
 

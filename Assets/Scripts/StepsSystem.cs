@@ -5,12 +5,12 @@ using UnityEngine;
 public class StepsSystem : MonoBehaviour
 {
     public int totalSteps = 0;
-    int recordSteps = 0; // Variable para almacenar el récord
+    public int recordSteps = 0; // Variable para almacenar el récord
 
     public bool recordSuperado = false;
 
-    // La clave para guardar el récord en PlayerPrefs
-    string recordKey = "RecordSteps";
+    
+    public string recordKey = "RecordSteps";
 
     public static StepsSystem Instance;
 
@@ -49,7 +49,26 @@ public class StepsSystem : MonoBehaviour
 
     void StepsCounter(Vector3 direction)
     {
-        if (direction.z > 0 && EventSubscriber.Instance.isOnLimit == true)
+        if (direction.z > 0 && EventSubscriber.Instance.isOnLimitFirstTime == false && EventSubscriber.Instance.youCanJump == true)
+        {
+            // Incrementar el contador de pasos
+            totalSteps++;
+
+            // Comprueba si el nuevo total de pasos supera el récord
+            if (totalSteps > recordSteps)
+            {
+                // Actualiza el récord
+                recordSteps = totalSteps;
+
+                recordSuperado = true;
+
+                // Guardar el nuevo récord en PlayerPrefs
+                PlayerPrefs.SetInt(recordKey, recordSteps);
+                //se guardan los cambios del record
+                PlayerPrefs.Save();
+            }
+        }
+        if (direction.z > 0 && EventSubscriber.Instance.isOnLimit == true && EventSubscriber.Instance.youCanJump == true)
         {
             // Incrementar el contador de pasos
             totalSteps++;

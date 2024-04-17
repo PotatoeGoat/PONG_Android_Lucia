@@ -23,7 +23,7 @@ public class GeneradorTramos : MonoBehaviour
         if(DestructorBehaviour.Instance.tramoDestruido == true)
         {
             GenerarTramo();
-            DestructorBehaviour.Instance.tramoDestruido = false;
+            
         }
     }
 
@@ -49,6 +49,7 @@ public class GeneradorTramos : MonoBehaviour
 
                 // Actualizar la posición del punto de generación para el siguiente tramo
                 generationPoint.position += offset * 2f;
+                DestructorBehaviour.Instance.tramoDestruido = false;
             }
             else
             {

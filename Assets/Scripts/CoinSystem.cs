@@ -6,6 +6,8 @@ public class CoinSystem : MonoBehaviour
 {
     public bool monedaRecogida = false;
 
+    public AudioSource coinSound;
+
     public static CoinSystem Instance;
 
     private void Awake()
@@ -38,6 +40,7 @@ public class CoinSystem : MonoBehaviour
         if (other.CompareTag("coin"))
         {
             GameController.Instance.coinCount++;
+            coinSound.Play();
             other.gameObject.SetActive(false);
             monedaRecogida = true;
         }

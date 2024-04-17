@@ -32,5 +32,22 @@ public class DestructorBehaviour : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
         }
-    } 
+
+        if (collision.gameObject.CompareTag("level"))
+        {
+            tramoDestruido = true;
+        }
+
+        tramoDestruido = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("level"))
+        {
+            tramoDestruido = true;
+        }
+
+        tramoDestruido = true;
+    }
 }

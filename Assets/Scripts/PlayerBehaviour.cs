@@ -9,6 +9,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     public Transform forward;
 
+    
+
     // Update is called once per frame
     void Update()
     {
@@ -49,15 +51,13 @@ public class PlayerBehaviour : MonoBehaviour
         {
             GameController.Instance.isDead = true;
         }
-        /*if (collision.gameObject.CompareTag("floor"))
-        {
-            transform.parent = null;
-        }*/
+       
         if (collision.gameObject.CompareTag("troncos"))
         {
             EventSubscriber.Instance.youCanJump = true;
             objectParent = collision.gameObject.transform;
             transform.parent = objectParent;
+            LeanTween.cancelAll(gameObject);
 
 
         }

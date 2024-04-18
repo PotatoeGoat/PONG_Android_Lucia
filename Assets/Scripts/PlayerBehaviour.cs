@@ -4,36 +4,16 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    float time = 1f;
 
-    float timer = 0f;
-    
-    bool touchingWater = false;
+    Transform objectParent;
 
-    
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        touchingWater = false;
-    }
+    public Transform forward;
 
     // Update is called once per frame
     void Update()
     {
-        if (touchingWater == true)
-        {
-            timer += Time.deltaTime;
-
-            if (timer > time)
-            {
-                GameController.Instance.isDead = true;
-                timer = 0f;
-            }
-        }
-
-        
-        /*RaycastHit hit;
+       
+        RaycastHit hit;
         if (Physics.Raycast(transform.position, -Vector3.up, out hit))
         {
             if (hit.collider.CompareTag("troncos"))
@@ -46,7 +26,7 @@ public class PlayerBehaviour : MonoBehaviour
             }
             
             
-        }*/
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -58,9 +38,9 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (other.CompareTag("water"))
         {
-            touchingWater = true;
+            GameController.Instance.isDead = true;
         }
-
+       
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -69,15 +49,29 @@ public class PlayerBehaviour : MonoBehaviour
         {
             GameController.Instance.isDead = true;
         }
+        /*if (collision.gameObject.CompareTag("floor"))
+        {
+            transform.parent = null;
+        }*/
         if (collision.gameObject.CompareTag("troncos"))
         {
             EventSubscriber.Instance.youCanJump = true;
-        }
+            objectParent = collision.gameObject.transform;
+            transform.parent = objectParent;
 
+
+        }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        
+        if (collision.gameObject.CompareTag("troncos"))
+        {
+            
+            transform.parent = null;
+
+
+        }
     }
+
 }

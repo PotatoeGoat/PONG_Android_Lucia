@@ -61,7 +61,7 @@ public class TroncosBehaviour : MonoBehaviour
     void MovimientoTronco()
     {
 
-        Vector3 forwardMovement = transform.up * troncoSpeed * Time.deltaTime;
+        Vector3 forwardMovement = transform.right * troncoSpeed * Time.deltaTime;
         transform.localPosition += forwardMovement;
     }
 }

@@ -10,6 +10,8 @@ public class StepsSystem : MonoBehaviour
     public bool recordSuperado = false;
 
     
+
+    
     public string recordKey = "RecordSteps";
 
     public static StepsSystem Instance;
@@ -44,14 +46,15 @@ public class StepsSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+     
     }
 
     void StepsCounter(Vector3 direction)
     {
-        if (direction.z > 0 && EventSubscriber.Instance.isOnLimitFirstTime == false && EventSubscriber.Instance.youCanJump == true)
+        if (direction.z > 0 && EventSubscriber.Instance.isOnLimitFirstTime == false && EventSubscriber.Instance.youCanJumpForward == true )
         {
-            // Incrementar el contador de pasos
+            
+
             totalSteps++;
 
             // Comprueba si el nuevo total de pasos supera el récord
@@ -68,9 +71,9 @@ public class StepsSystem : MonoBehaviour
                 PlayerPrefs.Save();
             }
         }
-        if (direction.z > 0 && EventSubscriber.Instance.isOnLimit == true && EventSubscriber.Instance.youCanJump == true)
+        if (direction.z > 0 && EventSubscriber.Instance.isOnLimit == true && EventSubscriber.Instance.youCanJumpForward == true)
         {
-            // Incrementar el contador de pasos
+            
             totalSteps++;
 
             // Comprueba si el nuevo total de pasos supera el récord
@@ -91,5 +94,6 @@ public class StepsSystem : MonoBehaviour
             Debug.Log("Total steps: " + totalSteps + ", Record: " + recordSteps);
         }
     }
+
 }
 

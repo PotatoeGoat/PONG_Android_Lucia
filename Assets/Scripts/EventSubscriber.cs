@@ -13,6 +13,11 @@ public class EventSubscriber : MonoBehaviour
     public bool isOnLimitFirstTime = false;
 
     public bool youCanJump = true;
+    public bool youCanJumpForward = true;
+    public bool youCanJumpRight = true;
+    public bool youCanJumpLeft = true;
+    public bool youCanJumpBehind = true;
+    public bool jump = false;
 
     public static EventSubscriber Instance;
 
@@ -53,20 +58,20 @@ public class EventSubscriber : MonoBehaviour
 
     void MoveTarget(Vector3 direction)
     {
-        if (direction.x > 0 && youCanJump == true)
+        if (direction.x > 0 && youCanJumpRight == true)
         {
             
             MovementTarjet(direction/2);
             RotatePlayer(90f);
 
         }
-        if (direction.x < 0 && youCanJump == true)
+        if (direction.x < 0 && youCanJumpLeft == true)
         {
             
             MovementTarjet(direction/2);
             RotatePlayer(-90f);
         }
-        if (direction.z > 0 && youCanJump == true)
+        if (direction.z > 0 && youCanJumpForward == true)
         {
             if (isOnLimit == false)
             {
@@ -81,7 +86,7 @@ public class EventSubscriber : MonoBehaviour
             
             RotatePlayer(0f);
         }
-        if (direction.z < 0 && youCanJump == true)
+        if (direction.z < 0 && youCanJumpBehind == true)
         {
             
             MovementTarjet(direction / 2);
@@ -100,6 +105,10 @@ public class EventSubscriber : MonoBehaviour
             LeanTween.moveLocal(chicken, chicken.transform.position + direction - Vector3.up, duration / 2).setEase(LeanTweenType.easeOutCubic).setOnComplete(() =>
             {
                 youCanJump = true;
+                if (isOnLimitFirstTime == true)
+                {
+                    jump = true;
+                }
             });
             
         });
@@ -124,6 +133,7 @@ public class EventSubscriber : MonoBehaviour
         {
             youCanJump = false;
         }
+
     }
 
     private void OnTriggerExit(Collider other)

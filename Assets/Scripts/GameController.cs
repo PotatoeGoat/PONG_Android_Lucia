@@ -32,6 +32,8 @@ public class GameController : MonoBehaviour
 
     public GameObject nuevoRecord;
 
+    public CanvasGroup recordResetText;
+
     private void Awake()
     {
         // Configurar singleton
@@ -100,7 +102,12 @@ public class GameController : MonoBehaviour
     public void RestartRecord()
     {
         PlayerPrefs.SetInt(StepsSystem.Instance.recordKey, 0); 
-        //StepsSystem.Instance.recordSteps = 0; 
+        StepsSystem.Instance.recordSteps = 0;
+        LeanTween.alphaCanvas(recordResetText, 1, 0.2f).setOnComplete(() =>
+        {
+            LeanTween.alphaCanvas(recordResetText, 0, 0.3f).setDelay(0.5f);
+            CoinSystem.Instance.monedaRecogida = false;
+        });
     }
 
     void impedirMovimiento()

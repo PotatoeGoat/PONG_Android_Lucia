@@ -31,7 +31,7 @@ public class LvLMovement : MonoBehaviour
 
     void LevelBehaviour(Vector3 direction)
     {
-        if (direction.z > 0 && EventSubscriber.Instance.isOnLimit == true && EventSubscriber.Instance.youCanJump == true)
+        if (direction.z > 0 && EventSubscriber.Instance.isOnLimit == true && EventSubscriber.Instance.youCanJumpForward == true)
         {
             MovementTarjet(-direction);
         }

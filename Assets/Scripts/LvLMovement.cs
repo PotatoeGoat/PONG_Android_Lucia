@@ -34,6 +34,7 @@ public class LvLMovement : MonoBehaviour
         if (direction.z > 0 && EventSubscriber.Instance.isOnLimit == true && EventSubscriber.Instance.youCanJumpForward == true)
         {
             MovementTarjet(-direction);
+           
         }
     }
 

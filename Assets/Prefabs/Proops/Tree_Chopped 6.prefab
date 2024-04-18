@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2175443509531705985}
   - component: {fileID: 2067495820770872629}
   - component: {fileID: 7318514972070386235}
-  - component: {fileID: 5506970696967907707}
   m_Layer: 0
   m_Name: Tree_Chopped 6
   m_TagString: obstacles
@@ -112,24 +111,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 124
   m_CollisionDetection: 0
---- !u!65 &5506970696967907707
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1753643581083820693}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.54006773, y: 0.6663658, z: 0.5400676}
-  m_Center: {x: 3.7787363e-14, y: 1.329525, z: 0}

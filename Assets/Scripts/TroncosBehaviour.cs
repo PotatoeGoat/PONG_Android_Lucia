@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TroncosBehaviour : MonoBehaviour
 {
-
+    
     
     public float troncoSpeed = 5f;
 
@@ -29,7 +29,7 @@ public class TroncosBehaviour : MonoBehaviour
     {
         if (other.CompareTag("stop"))
         {
-
+            
             DesactivacionTronco();
             Debug.Log("tronco desactivado");
 

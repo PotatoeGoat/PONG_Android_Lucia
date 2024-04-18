@@ -4361,7 +4361,7 @@ MonoBehaviour:
   - {fileID: 2109916202}
   - {fileID: 1964738610}
   - {fileID: 1296637912}
-  poolSize: 100
+  poolSize: 150
   parentObject: {fileID: 304402420}
 --- !u!4 &267638037
 Transform:
@@ -28855,7 +28855,7 @@ MonoBehaviour:
   - {fileID: 8636231526681353934}
   - {fileID: 8168216982990375796}
   - {fileID: 5157075112135427485}
-  poolSize: 100
+  poolSize: 150
   parentObject: {fileID: 304402420}
 --- !u!4 &1511705059
 Transform:
@@ -39974,8 +39974,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4107371287195290735, guid: bc9523a241ed64c34a73a1ca6e229050, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -40552,8 +40551,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5506970696967907707, guid: a0a9bb01283704e52aa58428bf23158b, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -40706,8 +40704,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1740355134481230734, guid: d409b8eb8df9746008e032fb4524e2a1, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -8,6 +8,7 @@ public class ActivarTroncosPool : MonoBehaviour
 
     
 
+
     public bool troncoDentro = false;
 
     void Start()
@@ -18,10 +19,12 @@ public class ActivarTroncosPool : MonoBehaviour
 
     private void Update()
     {
+      
+
         if (troncoDentro == false)
         {
             ActivarTronco();
-            troncoDentro = true;
+            
         }
     }
 
@@ -34,23 +37,28 @@ public class ActivarTroncosPool : MonoBehaviour
             tronco.transform.position = transform.position;
             tronco.transform.rotation = transform.rotation;
             tronco.SetActive(true);
-            
+            troncoDentro = true;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("troncos"))
+        if (other.CompareTag("troncos"))
         {
             troncoDentro = true;
+            
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("troncos"))
+        if (other.CompareTag("troncos"))
         {
             troncoDentro = false;
+            
         }
+
     }
+
+   
 }
